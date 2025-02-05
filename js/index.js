@@ -96,24 +96,29 @@ document.addEventListener('DOMContentLoaded', () => {
             contentTitleTop,
             n => new SplitType(n, { types: 'chars' })
         );
+        
         const titleBottomSplits = Array.from(
             contentTitleBottom,
             n => new SplitType(n, { types: 'chars' })
         );
+
         titleTopSplits[0]?.chars?.forEach(char => {
             const wrapper = document.createElement('div');
             wrapper.classList.add('char-wrap');
             char.parentNode.insertBefore(wrapper, char);
             wrapper.appendChild(char);
         });
+
         const textLeftSplits = Array.from(
             contentTextLeft,
             n => new SplitType(n, { types: 'lines' })
         );
+
         const textRightSplits = Array.from(
             contentTextRight,
             n => new SplitType(n, { types: 'lines' })
         );
+
         [textLeftSplits, textRightSplits].forEach(splits => {
             splits.forEach(split => {
             split.lines?.forEach(line => {
